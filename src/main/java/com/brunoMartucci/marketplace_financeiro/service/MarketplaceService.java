@@ -3,6 +3,7 @@ package com.brunoMartucci.marketplace_financeiro.service;
 import com.brunoMartucci.marketplace_financeiro.dto.MarketplaceDTO;
 import com.brunoMartucci.marketplace_financeiro.entity.Marketplace;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.brunoMartucci.marketplace_financeiro.repository.MarketplaceRepository;

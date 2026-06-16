@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="20260616113700" author="BrunoMartucci">
+
+        <createTable tableName="taxa_marketplace">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="marketplace_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="descricao" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="percentual" type="DECIMAL(10,2)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="tipo_taxa" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="taxa_marketplace"
+                baseColumnNames="marketplace_id"
+                referencedTableName="marketplace"
+                referencedColumnNames="id"
+                constraintName="fk_taxa_marketplace"/>
+
+    </changeSet>
+
+</databaseChangeLog>

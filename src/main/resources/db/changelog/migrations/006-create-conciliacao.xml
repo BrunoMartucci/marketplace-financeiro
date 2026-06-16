@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="20260616114100" author="BrunoMartucci">
+
+        <createTable tableName="conciliacao_marketplace">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="marketplace_id" type="BIGINT"/>
+
+            <column name="periodo_inicio" type="DATE"/>
+
+            <column name="periodo_fim" type="DATE"/>
+
+            <column name="data_conciliacao" type="DATETIME"/>
+
+            <column name="status" type="VARCHAR(30)"/>
+
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="conciliacao_marketplace"
+                baseColumnNames="marketplace_id"
+                referencedTableName="marketplace"
+                referencedColumnNames="id"
+                constraintName="fk_conciliacao_marketplace"/>
+
+    </changeSet>
+
+</databaseChangeLog>

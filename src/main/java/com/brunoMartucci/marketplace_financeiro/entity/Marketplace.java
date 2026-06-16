@@ -1,6 +1,6 @@
 package com.brunoMartucci.marketplace_financeiro.entity;
 
-import com.brunoMartucci.marketplace_financeiro.enun.MarketplaceEnun;
+import com.brunoMartucci.marketplace_financeiro.enun.MarketplaceEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +21,7 @@ public class Marketplace {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "nome", nullable = false, length = 100)
-    private MarketplaceEnun nome;
+    private MarketplaceEnum nome;
 
     @Column(name = "descricao", length = 255)
     private String descricao;

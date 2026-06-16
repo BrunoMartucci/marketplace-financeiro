@@ -1,9 +1,10 @@
 package com.brunoMartucci.marketplace_financeiro.enun;
 
-public enum MarketplaceEnun {
+public enum MarketplaceEnum {
     IFOOD,
     NOVENOVEFOODS,
     AIQFOME,
     RAPPI,
-    MERCADO_LIVRE
+    MERCADO_LIVRE,
+    SHOPEE
 }

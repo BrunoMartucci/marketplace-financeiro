@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="
+                   http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="20260616114000" author="BrunoMartucci">
+
+        <createTable tableName="recebivel_marketplace">
+
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="pedido_id" type="BIGINT"/>
+
+            <column name="forma_pagamento_id" type="BIGINT"/>
+
+            <column name="valor_bruto" type="DECIMAL(15,2)"/>
+
+            <column name="total_taxas" type="DECIMAL(15,2)"/>
+
+            <column name="valor_liquido" type="DECIMAL(15,2)"/>
+
+            <column name="data_prevista" type="DATE"/>
+
+            <column name="data_recebimento" type="DATE"/>
+
+            <column name="status" type="VARCHAR(30)"/>
+
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="recebivel_marketplace"
+                baseColumnNames="pedido_id"
+                referencedTableName="pedido_marketplace"
+                referencedColumnNames="id"
+                constraintName="fk_recebivel_pedido"/>
+
+        <addForeignKeyConstraint
+                baseTableName="recebivel_marketplace"
+                baseColumnNames="forma_pagamento_id"
+                referencedTableName="forma_pagamento_marketplace"
+                referencedColumnNames="id"
+                constraintName="fk_recebivel_forma_pagamento"/>
+
+    </changeSet>
+
+</databaseChangeLog>
